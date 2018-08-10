@@ -1,0 +1,10 @@
+# crawl web documents
+0 10-20/2 * * * ${PROJECT_HOME}/bin/harvest_ne.sh > /dev/null 2>&1
+ 
+# extract data
+0 21 * * * ${PROJECT_HOME}/bin/find_acronym_and_sort.sh > /dev/null 2>&1
+20 21 * * * ${PROJECT_HOME}/bin/find_acronym_and_sort_nlp.sh > /dev/null 2>&1
+ 
+# send email 
+40 21 * * * ${PROJECT_HOME}/bin/notify_by_mail.sh > ${MAIL_LOG_PATH}/mail.log 2>&1
+0 22 * * * ${PROJECT_HOME}/bin/notify_by_mail_nlp.sh > ${MAIL_LOG_PATH}/mail.log.nlp 2>&1

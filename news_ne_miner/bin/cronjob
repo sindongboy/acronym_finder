@@ -1,0 +1,9 @@
+0 10-20/2 * * * /home/hgpark/news_ne_miner/bin/harvest_ne.sh > /dev/null 2>&1
+ 
+0 21 * * * /home/hgpark/news_ne_miner/bin/find_acronym_and_sort.sh > /dev/null 2>&1
+ 
+20 21 * * * /home/hgpark/news_ne_miner/bin/find_acronym_and_sort_nlp.sh > /dev/null 2>&1
+ 
+40 21 * * * /home/hgpark/news_ne_miner/bin/notify_by_mail.sh > /home/hgpark/news_ne_miner/bin/log/mail.log 2>&1
+ 
+0 22 * * * /home/hgpark/news_ne_miner/bin/notify_by_mail_nlp.sh > /home/hgpark/news_ne_miner/bin/log/mail.log.nlp 2>&1
